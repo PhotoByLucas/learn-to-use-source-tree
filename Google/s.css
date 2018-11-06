@@ -1,0 +1,115 @@
+
+#top{
+    float: right;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-top: 19px;
+    margin-bottom: 5px;
+ }
+
+#BDphoto{
+    text-align: center;
+    position: absolute;
+    top: 100px;
+    height: 160px;
+    width: 100%;
+       }
+
+.topa{
+    font-size:13px;
+    font-stretch: 100%;
+    font-family:"arial";
+    text-decoration:underline;
+    color:#333
+}
+
+.topa:hover{
+    color: #3d66ff
+}
+
+#searchblock{
+    text-align: center;
+    position: absolute;
+    top: 280px;
+    height: 30px;
+    width: 100%;
+}
+
+form{
+    font-size: 0px
+    /*使box和button连在一起*/
+}
+
+#box{
+    width: 600px;
+    height: 20px;
+}
+
+#baiduyixia{
+    height: 100%;
+    border-color: #5140ff;
+    background-color: #5140ff;
+}
+
+#erweima{
+    text-align: center;
+    position: absolute;
+    bottom: 200px;
+    height: 30px;
+    width: 100%;
+}
+
+#bottom{
+    color: darkgray;
+    text-align: center;
+    position: absolute;
+    bottom: 60px;
+    height: 30px;
+    width: 100%;
+}
+
+.bottoma{
+    color: darkgray;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.bottomb{
+    color: darkgray;
+    font-size: 12px;
+}
+
+.bottomba{
+    color: darkgray;
+    font-size: 12px;
+}
+
+#popArray {
+    text-align: center;
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 0px;
+    position: absolute;
+    top: 34px;
+}
+
+#popArray ul{
+    text-align: center;
+    width: 60%;
+}
+
+#popArray ul li {
+    padding-left: 5px;
+}
+
+
+#popArray ul li:hover {
+    background-color: #CCC;
+}
+
+#divForLi{
+    width: 60%;
+    text-align: center;
+
+}

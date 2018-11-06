@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> baidu</title>
+    <link type="text/css" rel="stylesheet" href="s.css">
+    <script>
+        window.onload=function (ev) {
+            var boxText=document.getElementById("box");
+            var data=["a","ab","abc","abcd","abcde","abcdef","bcd","cde","def"];
+
+            boxText.onkeydown=function (ev) {
+                var textValue=boxText.value;
+                //console.log(textValue);
+                // var reg = new RegExp(textValue);
+
+                var liBox=document.getElementById("divForLi");
+
+                //如果存在节点 删除
+                //不可用这个方法，无法获取节点
+                //不同步？？？
+                // var liArray = document.getElementsByClassName("li");
+                var liChildNodes = liBox.childNodes;
+                //console.log(liArray);
+                for (i = 0; typeof liChildNodes[i] !='undefined' && liChildNodes.length>=1; ) {
+                    liBox.removeChild(liChildNodes[i]);
+                    console.log("remove " + i);
+                }
+
+                //模糊识别
+                var aNewArry=[];
+                for (var i=0;i<data.length;i++){
+                    if (data[i].indexOf(textValue)==0){
+                        aNewArry.push(data[i]);
+                    }
+                }
+                //console.log(aNewArry);
+
+
+                /*if(typeof popArray !='undefined' ){
+                    searchBox.removeChild(deleteNote);
+                    console.log("remove");
+                }*/
+                //删除节点方法失败，甚至没有console
+
+                var popArray=document.createElement("div");
+                popArray.id = "popArray";
+                var ul=document.createElement("ul");
+                liBox.appendChild(popArray);
+                popArray.appendChild(ul);
+                for(var i=0;i<aNewArry.length;i++){
+                    var li = document.createElement("li");
+                    li.className = "li";
+                    ul.appendChild(li);
+                    li.innerHTML = aNewArry[i];
+                    li.style.lineHeight="20px";
+                    // li.style.color = "blue";
+                    li.style.cursor = "pointer";
+                    li.style.boxSizing = "border-box";
+                    li.style.padding="0 5px";
+                    li.style.width = "600px";
+                    //无法调整大小
+                }
+
+                //点击li改变搜索框value
+                var liArray=document.getElementsByTagName("li");
+                var box=document.getElementById("box")
+                for (var i=0;i<liArray.length;i++) {
+                    liArray[i].onclick=function () {
+                        box.value=this.innerHTML;
+                        //console.log(a);
+                    }
+                }
+            }
+
+        }
+
+        var box=document.getElementById("box")
+        function buttonclick() {
+            var bc=box.value;
+            console.log(bc);
+            var osc = document.createElement("script"); /*创建一个script标签*/
+            osc.src = "https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=aaa"+box.value+"&cb=houxiaowei";
+            document.body.appendChild(osc);
+            //console.log("click")
+            window.location.href = "https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd="+box.value;
+            window.event.returnValue=false;//??????改成获取输入就不行了
+            //没用
+        }
+
+        /*ajax
+        function creatXMLHttp() {
+            var xmlHttp;
+            if(window.XMLHttpRequest){
+                xmlHttp=new XMLHttpRequest();
+            }
+            if(window.ActiveXObject)
+            {
+                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+                if(!xmlHttp){
+                    xmlHttp=new ActiveXOject("Msxml2.XMLHTTP");
+                }
+            }
+            return xmlHttp;
+        }*/
+    </script>
+</head>
+<body>
+    <div id="top">
+        <a href="main.html" class="topa">新闻</a>
+        <a href="main.html" class="topa">hao123</a>
+        <a href="main.html" class="topa">地图</a>
+        <a href="main.html" class="topa">贴吧</a>
+        <a href="main.html" class="topa">学术</a>
+        <a href="main.html" class="topa">登陆</a>
+        <a href="main.html" class="topa">设置</a>
+        <a href="main.html" class="topa">更多产品</a>
+    </div>
+    <div id="BDphoto">
+        <img src="微信图片_20181029113519.png" id="baidu">
+    </div>
+    <div id="searchblock">
+        <form>
+            <input id="box" type="text">
+            <button id="baiduyixia" style="color: white;" onclick="buttonclick()">百度一下</button>
+        </form>
+        <div id="divForLi"></div>
+    </div>
+    <div id="erweima">
+        <div>
+            <img src="微信图片_20181029204208.png">
+        </div>
+        <a>百度</a>
+    </div>
+    <div id="bottom">
+        <div>
+            <a href=" " class="bottoma">把百度设为首页</a>
+            <a href=" " class="bottoma">关于百度</a>
+            <a href=" " class="bottoma">About Baidu</a>
+            <a href=" " class="bottoma">百度推广</a>
+        </div>
+        <div>
+            <p class="bottomb">2018 Baidu <a class="bottomba" href=" ">使用百度前必读</a> <a href=" " class="bottomba">意见反馈</a> 京ICP证030173号     <a href=" " class="bottomba">京公网安备11000002000001号</a></p>
+        </div>
+    </div>
+</body>
+</html>
